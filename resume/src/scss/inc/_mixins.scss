@@ -1,0 +1,66 @@
+/* _mixins */
+
+//Border Radius
+@mixin br($radius) {
+	
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	
+}
+
+@mixin br-s($topLeftRadius:0,  $topRightRadius:0, $bottomLeftRadius:0, $bottomRightRadius:0) {
+	
+	-webkit-border-top-left-radius:     $topLeftRadius;
+	-webkit-border-top-right-radius:    $topRightRadius;
+	-webkit-border-bottom-left-radius:  $bottomLeftRadius;
+	-webkit-border-bottom-right-radius: $bottomRightRadius;
+
+	-moz-border-radius-topleft:     $topLeftRadius;
+	-moz-border-radius-topright:    $topRightRadius;
+	-moz-border-radius-bottomleft:  $bottomLeftRadius;
+	-moz-border-radius-bottomright: $bottomRightRadius;
+
+	border-top-left-radius:     $topLeftRadius;
+	border-top-right-radius:    $topRightRadius;
+	border-bottom-left-radius:  $bottomLeftRadius;
+	border-bottom-right-radius: $bottomRightRadius;
+
+}
+
+@mixin bx-sh($top, $left, $blur, $rbg1, $rgb2, $rgb3, $op, $inset: false) {
+	
+	@if $inset {
+		  
+	    -webkit-box-shadow:inset $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    -moz-box-shadow:inset $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    box-shadow:inset $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    
+	} @else {
+		  
+	    -webkit-box-shadow: $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    -moz-box-shadow: $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    box-shadow: $top $left $blur rgba($rbg1, $rgb2, $rgb3, $op);
+	    
+	}
+  
+}
+
+@mixin text-shadow($rbg1, $rgb2, $rgb3, $value) {
+	
+    text-shadow: 1px 1px 1px rgba($rbg1, $rgb2, $rgb3, $value);
+    
+}
+
+@mixin rotate($degrees) {
+	
+	-webkit-transform: rotate($degrees);
+	-moz-transform: rotate($degrees);
+	-ms-transform: rotate($degrees);
+	-o-transform: rotate($degrees);
+	transform:rotate($degrees);
+}
