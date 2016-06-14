@@ -31,6 +31,12 @@ header {
     text-align: center;
 }
 
+@media screen and (max-width) {
+    header {
+        padding:1em 0;
+    }
+}
+
 .title-wrapper p {
     max-width:50%;
     margin: 0 auto;
