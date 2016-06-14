@@ -2,6 +2,7 @@
 @import 'inc/normalize';
 @import 'inc/press';
 
+
 /* GLOBAL CLASSES */
 
 /* GLOBAL TAGS */
@@ -24,7 +25,6 @@ main {
 /* HEADER TAGS/CLASSES */
 
 header {
-    //@extend .resume-card;
     padding:3em 0;
     margin:4em auto;
     display:flex;
@@ -34,12 +34,38 @@ header {
 .title-wrapper p {
     max-width:50%;
     margin: 0 auto;
+    position:relative;
+    top:80px;
+    opacity: 0;
+    animation:moveIn ease-in-out .5s;
+    animation-fill-mode:forwards;
+    animation-duration:900ms;
+    animation-delay: 300ms;
 }
+
+.title-wrapper > h1 {
+    animation:moveIn ease-in-out .5s;
+    animation-fill-mode:forwards;
+    animation-duration:900ms;
+    position:relative;
+    top:80px;
+    opacity:0;
+    animation-delay: 200ms;
+}
+
+@keyframes moveIn { from { opacity:0; top:80px; } to { opacity:1; top:0px; } }
 
 .profile-headshot {
     border-radius:50%;
     border: solid 1px rgba(0,0,0,0.1);
     box-shadow:2px 3px 10px -3px rgba(0,0,0,0.4);
+    position:relative;
+    top:80px;
+    opacity: 0;
+    animation:moveIn ease-in-out .5s;
+    animation-fill-mode:forwards;
+    animation-duration:900ms;
+    animation-delay: 100ms;
 } 
 
 .contact-info {
@@ -48,11 +74,32 @@ header {
 }
 
 .contact-info a {
+    opacity: 0;
     margin: 0 .25em;
     box-shadow:2px 3px 10px -3px rgba(0,0,0,0.4);
+    position:relative;
+    top:80px;
+    animation:moveIn ease-in-out .5s;
+    animation-fill-mode:forwards;
+    animation-duration:900ms;
 }
 
+@for $i from 1 through 5 {
+    .contact-info a:nth-of-type(#{$i}) {
+        animation-delay: 300ms + ( $i * 100ms );
+    }
+}
+
+
 /* MAIN TAGS/CLASSES */
+
+main {
+    opacity:0;
+    animation:moveIn ease-in-out .5s;
+    animation-fill-mode:forwards;
+    animation-duration:1000ms;
+    animation-delay:1000ms;
+}
 
 section {
     margin-bottom:5vh;

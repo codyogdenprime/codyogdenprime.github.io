@@ -20,8 +20,7 @@ module.exports = function(grunt) {
       },
  
       processors: [
-        require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes 
-        //require('cssnano')() // minify the result 
+        require('autoprefixer')({browsers: 'last 3 versions'}), // add vendor prefixes 
       ]
     },
     dist: {
@@ -57,7 +56,6 @@ module.exports = function(grunt) {
 					},
                 },
             },
-	    
     });
 
     // Create Grunt Tasks
@@ -69,5 +67,5 @@ module.exports = function(grunt) {
 
     // Create Grunt commands
 	    grunt.registerTask('default', ['sass','postcss','concat','uglify']);
-		grunt.registerTask('dev', ['watch']);
+		  grunt.registerTask('dev', ['watch']);
 };
