@@ -1,0 +1,92 @@
+$imgsize: 80px;
+
+.mpc {
+  height: $imgsize;
+  width: $imgsize;
+  padding:0;
+  margin:0;
+  border-radius:10%;
+  overflow:hidden;
+  list-style-type:none;
+  display:flex;
+  flex-flow: column wrap;
+  align-items:center;
+  user-select:none;
+  margin-top: 1em;
+}
+
+.mpc > li {
+  display:flex;
+  overflow:hidden;
+  justify-content:center;
+  align-items:center;
+  align-content: center;
+}
+
+.mpc li img {
+  width: $imgsize;
+  height: $imgsize;
+  min-width: $imgsize;
+  min-height: $imgsize;
+}
+
+@for $i from 1 through 4 {
+  .mpc li:nth-child(#{$i}) {
+    order: #{$i};
+  }
+}
+
+/* One Child */
+.mpc li:only-child {
+  width: 100%;
+}
+
+/* Two Children */
+.mpc li:nth-last-child(2),
+.mpc li:nth-last-child(n+2) ~ li:nth-child(2),
+.mpc li:nth-last-child(3) /* Three children */ {
+  width:50%;
+}
+
+.mpc li:nth-last-child(n+3) ~ li:nth-child(n+2):nth-child(-n+3) {
+  width:50%;
+  flex: 0 0 50%;
+}
+
+/* Four Children */
+.mpc li:nth-last-child(n+4),
+.mpc li:nth-last-child(n+4) ~ li:nth-child(n+2):nth-child(-n+4) {
+  width:50%;
+  flex: 0 0 50%;
+}
+
+/* Five or More Children - Hide Them! */
+.mpc li:nth-child(n+5) {
+  display: none;
+}
+
+/* Hack: Deal with more than 4 people gracefully */
+.mpc li:nth-last-child(n+5) ~ li:nth-child(4) {
+  display: block;
+  img {
+    display: block;
+    float: left;
+    width: ( $imgsize * .5 );
+    height: ( $imgsize * .5 );
+    min-width: ( $imgsize * .5 );
+    min-height: ( $imgsize * .5 );
+  }
+  &:after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: .5 * $imgsize;
+    height: .5 * $imgsize;
+    content: "\00BB";
+    font-size: .3 * $imgsize;
+    position: relative;
+    top: -0.5 * $imgsize;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, .5);
+  }
+}

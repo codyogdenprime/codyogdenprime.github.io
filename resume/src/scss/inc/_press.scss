@@ -1,30 +1,3 @@
-$colors: (
-  "red": #F44336,
-  "pink": #E91E63,
-  "purple": #9C27B0,
-  "deeppurple": #673AB7,
-  "indigo": #3F51B5,
-  "blue": #2196F3,
-  "lightblue": #03A9F4,
-  "cyan": #00BCD4,
-  "teal": #009688,
-  "green": #4CAF50,
-  "lightgreen": #BBC34A,
-  "lime": #CDDC39,
-  "yellow": #FFEB3B,
-  "amber": #FFC107,
-  "orange": #FF9800,
-  "deeporange": #FF5722,
-  "brown": #795548,
-  "grey": #9E9E9E,
-  "bluegrey": #607D8B,
-  "black": #000000,
-  "white": #FFFFFF,
-  "linkedin": #0077b5,
-  "twitter": #55acee,
-  "github": #6cc644
-);
-
 .press {
   min-width:80px;
   display:inline-block;
@@ -39,7 +12,7 @@ $colors: (
   cursor:pointer;
   color:#FFF;
   box-sizing:border-box;
-  transition: background 0.15s linear;
+  transition: background-color 0.15s linear;
   &:disabled {
     cursor: not-allowed;
     opacity:.3;
@@ -52,10 +25,10 @@ $colors: (
       background-color: $hex;
       border:2px solid $hex;
         &:hover:not(:disabled) {
-          background-color:rgba($hex,.6); 
+          background-color:lighten($hex, 5); 
         }
         &:active:not(:disabled) {
-          background-color:rgba($hex,.8); 
+          background-color: darken($hex, 2);
         }
         &:disabled {
           background-color: $hex;
@@ -97,6 +70,7 @@ $colors: (
   }
   &-ghost {
     background-color:transparent;
+    border:2px solid currentColor;
      &:hover:not(:disabled), &:active:not(:disabled) {
        color:#FFF;
      }

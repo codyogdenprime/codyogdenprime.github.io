@@ -1,0 +1,9 @@
+.position-item {
+	background-color: #FFF;
+	border: 1px solid #e1e1e1;
+	border-top:0;
+}
+
+.position-item:first-of-type {
+	border-top: 1px solid #e1e1e1;
+}

@@ -1,0 +1,31 @@
+section.feature {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	align-content: center;
+}
+
+.feature-display {
+	min-height: 200px;
+	width: 100%;
+	flex: 0 0 44%;
+}
+
+.feature-info {
+	flex: 0 0 60%;
+	padding-right: 10%;
+	padding-left: 10%;
+	box-sizing: border-box;
+	font-size: 1.25em;
+	display: flex;
+	flex-flow: column;
+	text-align: left;
+	justify-content: center;
+}
+
+.feature-flex {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
